@@ -83,7 +83,12 @@ function Weather({ temp, weather }) {
         />
         <Text style={styles.temp}>{temp}°</Text>
       </View>
-      <View style={styles.halfContainer}></View>
+      <View style={styles.halfContainer}>
+        <View style={{ ...styles.halfContainer, ...styles.textContainer }}>
+          <Text style={styles.title}>{weather}</Text>
+          <Text style={styles.subTitle}>Today is {weather.toLowerCase()}</Text>
+        </View>
+      </View>
     </LinearGradient>
   );
 }
@@ -102,6 +107,21 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  textContainer: {
+    paddingHorizontal: 20,
+    alignItems: "flex-start",
+  },
+  title: {
+    fontSize: 44,
+    fontWeight: "300",
+    marginBottom: 10,
+    color: "#fff",
+  },
+  subTitle: {
+    fontWeight: "600",
+    fontSize: 24,
+    color: "#fff",
   },
 });
 
